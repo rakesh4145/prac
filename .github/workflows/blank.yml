@@ -19,8 +19,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: dylanvann/check-pull-request-title@v0.1.14
+      - uses: Slashgear/action-check-pr-title@2.0.0
         with:
-          # Match pull request titles in the form UI-1234 - Message.
-          pattern: '^UI* - '
+            regex: '([a-z])+'
