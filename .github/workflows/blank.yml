@@ -16,11 +16,11 @@ on:
       - reopened
       - synchronize  
 jobs:
-  title-check:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: naveenk1223/action-pr-title@master
+      - uses: actions/checkout@v1
+      - uses: dylanvann/check-pull-request-title@v0.1.14
         with:
-          regex: '.+' # Regex the title should match.
-          allowed_prefixes: 'feature,fix,bugfix,patch,enhancement,hotfix' # title should start with the given prefix
-          prefix_case_sensitive: false
+          # Match pull request titles in the form UI-1234 - Message.
+          pattern: '^UI* - '
